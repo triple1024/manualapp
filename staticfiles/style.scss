@@ -1,0 +1,98 @@
+html, body {
+    width: 100%;
+    // align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f6f0e8;
+}
+
+a {
+    text-decoration: none;
+    list-style: none;
+    line-height: 2;
+}
+
+li {
+    list-style: none;
+
+}
+
+
+//signup.html
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+
+    .form-floating:focus-within {
+    z-index: 2;
+    }
+
+    input {
+    &[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    }
+}
+
+
+//work,list.html
+.accordion {
+    width: 100%;
+
+    &-item {
+        background-color: #f5f5f5;
+    }
+
+    &-header {
+    display: grid;
+    grid-template-columns: 9.5fr 0.5fr;
+    }
+}
+
+.accordion-button {
+    background-color: #f5f5f5;
+}
+
+.accordion-body {
+    background-color: white;
+}
+
+.work-title{
+    margin-left: 15px;
+}
+
+.list-title {
+    color: #0c63e4;
+    margin: 8px 0 0 10px;
+}
+
+// process.html
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.flex {
+    display: flex;
+}
+//detail.html
+
+.break-word {
+    text-align: justify;
+    white-space: pre-line;
+}
+
+//footer
+.btn{
+    display: flex;
+    justify-content: space-around;
+}

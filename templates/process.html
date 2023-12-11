@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link href ="{% static 'style.css' %}" rel="stylesheet">
+{% endblock customcss %}
+
+{% block header %}
+<header class="header">
+    <h1 class="logo">
+        JPT体験インターン
+    </h1>
+</header>
+{% endblock header %}
+
+{% block content %}
+<div class="modal modal-tour position-static d-block bg-light bg-gradient py-5" tabindex="-1" role="dialog" id="modalTour">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-body p-5">
+                <h2 class="fw-bold mb-0">
+                    {{ process.title }}
+                </h2>
+
+                <ul class="d-grid gap-4 my-5 list-unstyled">
+                    <li class="d-flex gap-4">
+                    <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+                    <div class = "flex">
+                        <!-- 関連マニュアルを表示する部分 -->
+                        <h5 class="mb-0">関連マニュアル</h5>
+                        <ul>
+                            {% for document in related_documents %}
+                                <li>
+                                    <a href="{% url 'care_detail' document.id %}">{{ document.manual.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    </li>
+                    <li class="d-flex gap-4">
+                    <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+                        <div class = "flex">
+                            <h5 class="mb-0">前の手順</h5>
+                            <ul>
+                                {% for prev_process in previous_processes %}
+                                    <li>
+                                        <a href="{% url 'process_detail' prev_process.id %}">{{ prev_process.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="d-flex gap-4">
+                    <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+                        <div class = "flex">
+                            <h5 class="mb-0">次の手順</h5>
+                            <ul>
+                                {% for next_process in next_processes %}
+                                    <li>
+                                        <a href="{% url 'process_detail' next_process.id %}">{{ next_process.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <div class="btn">
+            <a href="{% url 'index_home' %}" class="btn btn-secondary btn-lg " tabindex="-1" role="button" aria-disabled="true">
+                TOPへ戻る
+            </a>
+        </div>
+    </ul>
+    <p class="text-center text-muted">&copy; Ryo Mitsui</p>
+</footer>
+{% endblock content %}

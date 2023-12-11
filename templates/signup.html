@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link href ="{% static 'style.css' %}" rel="stylesheet">
+{% endblock customcss %}
+
+{% block content %}
+<div class="text-center">
+    {{ Error }}
+    <form class="form-signin w-100 m-auto" method="POST">{% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">サインインして下さい</h1>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="username" name='username'>
+            <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name='password'>
+            <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">サインイン</button>
+    </form>
+</div>
+
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <div class="btn">
+            <a href="{% url 'index_home' %}" class="btn btn-secondary btn-lg " tabindex="-1" role="button" aria-disabled="true">
+                TOPへ戻る
+            </a>
+        </div>
+    </ul>
+    <p class="text-center text-muted">&copy; Ryo Mitsui</p>
+</footer>
+{% endblock %}
+
+

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link href ="{% static 'style.css' %}" rel="stylesheet">
+{% endblock customcss %}
+
+{% block header %}
+<header class="header">
+    <h1 class="logo">
+        JPT体験インターン
+    </h1>
+</header>
+{% endblock header %}
+
+{% block content %}
+<div class="column">
+    <div class="container">
+        <div class="accordion" id="accordionExample">
+            {% for work_data in workin %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                        <a class="work-title" href="{% url 'carelist' pk=work_data.related_work.id %}">{{ work_data.work_name }}</a>
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                        </button>
+                    </h2>
+                    <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {% for process in work_data.related_processes %}
+                                <li>
+                                    <a href="{% url 'process_detail' process.id %}">
+                                        <div class="disabled" tabindex="-1" role="button" aria-disabled="true">
+                                            {{ process.title }}
+                                        </div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="py-3 my-4 footer">
+        <div class="container">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                {% if user.is_authenticated %}
+                <!-- ログインしている場合 -->
+                <div class="btn login">
+                    <a href="{% url 'admin:index' %}" class="btn btn-primary btn-lg">管理画面へ</a>
+                </div>
+            {% else %}
+                <!-- ログインしていない場合 -->
+                <div class="btn login">
+                    <a href="{% url 'admin:login' %}?next=/admin" class="btn btn-primary btn-lg">ログイン</a>
+                </div>
+            {% endif %}
+                <div class="btn signup">
+                    <a href="{% url 'signup' %}" class="btn btn-primary btn-lg">サインイン</a>
+                </div>
+            </ul>
+            <p class="text-center text-muted">&copy; Ryo Mitsui</p>
+        </div>
+    </footer>
+</div>
+
+{% endblock %}

@@ -1,0 +1,140 @@
+html, body {
+    width: 100%;
+    padding-bottom: 40px;
+    background-color: #f6f0e8;
+
+}
+
+a {
+    text-decoration: none;
+    list-style: none;
+    line-height: 2;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+//header
+.logo {
+    text-align: center;
+    margin: 40px;
+    font-weight: bold;
+    color: #563c3c;
+}
+
+
+//footer
+.btn{
+    display: flex;
+    justify-content: space-around;
+}
+
+//signup.html
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+
+    .form-floating:focus-within {
+    z-index: 2;
+    }
+
+    input {
+    &[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    }
+}
+
+
+//work
+.accordion {
+    width: 100%;
+
+    &-item {
+        background-color: #f9f7f4;
+    }
+
+    &-header {
+    display: grid;
+    grid-template-columns: 9.5fr 0.5fr;
+    }
+}
+
+.accordion-button {
+    background-color: #f9f7f4;
+    color: #000;
+
+    &:hover {
+        color: #fff;
+        background-color: #d6eaff;
+    }
+    &.collapsed {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+    &:not(.collapsed) {
+        background-color:#f9f7f4;
+        box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 #ecf0f3;
+        &::after {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+.accordion-body {
+    background-color: #f9f7f4;
+}
+
+.work-title{
+    margin-left: 15px;
+}
+
+//list.html
+
+.modal-content {
+    background-color: #f9f7f4;
+}
+
+.bg-custom {
+    background-color: #f8f5ef;
+}
+
+// process.html
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.flex {
+    display: flex;
+}
+//detail.html
+
+.break-word {
+    text-align: justify;
+    white-space: pre-line;
+}
+
+
+.footer{
+    position:sticky;
+	top:100vh;
+}
