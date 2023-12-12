@@ -22,41 +22,37 @@
                     {{ process.title }}
                 </h2>
 
-                <ul class="d-grid gap-4 my-5 list-unstyled">
-                    <li class="d-flex gap-4">
-                    <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
-                    <div class = "flex">
-                        <!-- 関連マニュアルを表示する部分 -->
-                        <h5 class="mb-0">関連マニュアル</h5>
-                        <ul>
-                            {% for document in related_documents %}
-                                <li>
-                                    <a href="{% url 'care_detail' document.id %}">{{ document.manual.name }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    </li>
-                    <li class="d-flex gap-4">
-                    <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+                <ul class="d-grid gap-4 my-5 list-unstyled justify" >
                         <div class = "flex">
-                            <h5 class="mb-0">前の手順</h5>
-                            <ul>
-                                {% for prev_process in previous_processes %}
-                                    <li>
-                                        <a href="{% url 'process_detail' prev_process.id %}">{{ prev_process.title }}</a>
+                            <!-- 関連マニュアルを表示する部分 -->
+                            <h5 class="mb-0">関連マニュアル</h5>
+                            <ul class="link">
+                                {% for document in related_documents %}
+                                    <li class = "disc">
+                                        <a href="{% url 'care_detail' document.id %}">{{ document.manual.name }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
                         </div>
                     </li>
                     <li class="d-flex gap-4">
-                    <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+                        <div class = "flex">
+                            <h5 class="mb-0">前の手順</h5>
+                            <ul class="link">
+                                {% for prev_process in previous_processes %}
+                                    <li class = "disc">
+                                        <a href="{% url 'process_detail' prev_process.id %}">{{ prev_process.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            </div>
+                    </li>
+                    <li class="d-flex gap-4">
                         <div class = "flex">
                             <h5 class="mb-0">次の手順</h5>
-                            <ul>
+                            <ul class="link">
                                 {% for next_process in next_processes %}
-                                    <li>
+                                    <li class = "disc">
                                         <a href="{% url 'process_detail' next_process.id %}">{{ next_process.title }}</a>
                                     </li>
                                 {% endfor %}

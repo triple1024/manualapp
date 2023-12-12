@@ -6,9 +6,13 @@ html, body {
 
 a {
   text-decoration: none;
-  list-style: none;
   line-height: 2;
   color: black;
+}
+
+.disc {
+  -webkit-text-decoration: underline solid;
+          text-decoration: underline solid;
 }
 
 li {
@@ -91,6 +95,7 @@ li {
 
 .modal-content {
   background-color: #f9f7f4;
+  width: 100%;
 }
 
 .bg-custom {
@@ -104,6 +109,15 @@ li {
 
 .flex {
   display: flex;
+  flex-direction: column;
+}
+
+.link {
+  margin-top: 15px;
+}
+
+.fw-bold {
+  font-size: 25px;
 }
 
 .break-word {

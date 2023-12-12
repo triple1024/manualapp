@@ -7,9 +7,13 @@ html, body {
 
 a {
     text-decoration: none;
-    list-style: none;
+    // list-style: none;
     line-height: 2;
     color: black;
+}
+
+.disc{
+    text-decoration: underline solid;
 }
 
 li {
@@ -110,6 +114,7 @@ li {
 
 .modal-content {
     background-color: #f9f7f4;
+    width: 100%;
 }
 
 .bg-custom {
@@ -123,11 +128,21 @@ li {
     fill: currentColor;
 }
 
+
 .flex {
     display: flex;
+    flex-direction: column;
+}
+
+.link {
+    margin-top: 15px;
+
 }
 //detail.html
 
+.fw-bold{
+    font-size: 25px;
+}
 .break-word {
     text-align: justify;
     white-space: pre-line;

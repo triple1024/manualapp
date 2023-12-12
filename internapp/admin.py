@@ -6,18 +6,11 @@ from django.urls import reverse
 
 # カスタムした管理画面設定
 admin.site.site_header = 'InternApp管理画面'
-admin.site.index_title = 'モデルリスト'
+admin.site.index_title = 'データ管理'
 admin.site.site_url = '/work/'
 
+
 class MyAdminSite(admin.AdminSite):
-    def get_app_list(self, request):
-        # モデルの表示順をカスタム
-        ordering = {'Work': 0, 'Process': 1, 'Manual': 2, 'Document': 3}
-        app_list = super().get_app_list(request)
-        app_list.sort(key=lambda x: ordering.get(x['name'], 100))
-        # デバッグメッセージを追加
-        print("Debug: App List Order", [item['name'] for item in app_list])
-        return app_list
 
     def index(self, request, extra_context=None):
         if not request.user.is_authenticated:
@@ -74,7 +67,7 @@ class ManualAdmin(admin.ModelAdmin):
     actions_on_bottom = True
     list_per_page = 30
 
-# Process モデルの管理画面設定
+# Process モデルの管理画面設
 class ProcessAdmin(admin.ModelAdmin):
     list_display = ('title', 'display_work_set')
     list_filter = ('work_set', )

@@ -28,7 +28,7 @@
                         <div class="accordion-body">
                             {% for process in work_data.related_processes %}
                                 <li>
-                                    <a href="{% url 'process_detail' process.id %}">
+                                    <a  href="{% url 'process_detail' process.id %}">
                                         <div class="disabled" tabindex="-1" role="button" aria-disabled="true">
                                             {{ process.title }}
                                         </div>
